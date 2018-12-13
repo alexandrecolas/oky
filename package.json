@@ -1,0 +1,15 @@
+{
+  "name": "oky",
+  "version": "0.0.1",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexandrecolas/oky.git"
+  },
+  "author": "Alexandre Colas <colasalexandre@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexandrecolas/oky/issues"
+  },
+  "homepage": "https://github.com/alexandrecolas/oky#readme"
+}
