@@ -25,6 +25,10 @@
     "jest": "^23.6.0",
     "regenerator-runtime": "^0.13.1"
   },
+  "dependencies": {
+    "ramda": "^0.26.1",
+    "ramda-validations": "github:alexandrecolas/ramda-validations#master"
+  },
   "babel": {
     "presets": [
       "@babel/preset-env",
