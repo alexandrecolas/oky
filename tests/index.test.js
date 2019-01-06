@@ -1,5 +1,4 @@
-import validate from "src";
-import { isInteger, isPositive, isString, isPresent } from "ramda-validations";
+import validate, { isInteger, isPositive, isString, isPresent } from "src";
 
 describe("validate", () => {
   test("validate one validator", () => {
