@@ -7,7 +7,7 @@ import validateHash from "./validate-hash";
 /**
  * Validate
  */
-const validate = curry((schema, value) => {
+const validate = curry((schema: any, value: any) => {
   if (isHash(schema)) {
     return validateHash(schema, value);
   } else if (is(Array, schema)) {

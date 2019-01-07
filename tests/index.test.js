@@ -1,4 +1,4 @@
-import validate, { isInteger, isPositive, isString, isPresent } from "src";
+import validate, { isInteger, isPositive, isString, isPresent } from "../src";
 
 describe("validate", () => {
   test("validate one validator", () => {

@@ -4,15 +4,15 @@ import validate from "./index";
 /**
  * cleanObjectValidation
  */
-const cleanObjectValidation = reject(equals(true));
+const cleanObjectValidation: {(object: Object): Object} = reject(equals(true));
 
 /**
  * Validate Hash
  */
-const validateHash = (object, value) => {
+const validateHash = (object: object, value: object) => {
   return compose(
     cleanObjectValidation,
-    mapObjIndexed((schema, name) => validate(schema, value[name]))
+    mapObjIndexed((schema: any, name: string) => validate(schema, value[name]))
   )(object);
 };
 
