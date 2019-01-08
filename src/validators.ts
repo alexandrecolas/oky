@@ -28,7 +28,6 @@ export const isObject = RV.isObject;
 export const isHash = RV.isHash;
 export const isFinite = RV.isFinite;
 export const isMultiple = RV.isMultiple;
-export const isPromise = RV.isPromise;
 
 export const Validators = {
   hasPattern: hasPattern,
@@ -57,6 +56,5 @@ export const Validators = {
   isObject: isObject,
   isHash: isHash,
   isFinite: isFinite,
-  isMultiple: isMultiple,
-  isPromise: isPromise
+  isMultiple: isMultiple
 };
