@@ -1,4 +1,4 @@
-import validate, { isInteger, isPositive, isString, isPresent } from "src";
+import validate, { isInteger, isPositive, isString, isPresent } from "../src";
 
 describe("validate", () => {
   test("validate one validator", () => {
@@ -8,7 +8,11 @@ describe("validate", () => {
   });
 
   test("validate many validators", () => {
-    const checkValidations = validate([isInteger, isPositive, isPresent]);
+    const checkValidations = validate([
+      Validators.isInteger,
+      isPositive,
+      isPresent
+    ]);
     const result = checkValidations("kenobi");
     expect(result).toContainEqual("isIntegerFailed");
     expect(result).toContainEqual("isPositiveFailed");

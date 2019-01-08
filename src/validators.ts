@@ -1,6 +1,5 @@
 import * as RV from "ramda-validations";
 import R from "ramda";
-import validate from "./validate";
 
 export const hasPattern = R.test;
 export const isContains = R.includes;
@@ -29,6 +28,33 @@ export const isObject = RV.isObject;
 export const isHash = RV.isHash;
 export const isFinite = RV.isFinite;
 export const isMultiple = RV.isMultiple;
-export const isPromise = RV.isPromise;
 
-export default validate;
+export const Validators = {
+  hasPattern: hasPattern,
+  isContains: isContains,
+  isEqualsTo: isEqualsTo,
+  hasKey: hasKey,
+  isGreaterThan: isGreaterThan,
+  isGreaterThanOrEqualTo: isGreaterThanOrEqualTo,
+  isLessThan: isLessThan,
+  isLessThanOrEqualTo: isLessThanOrEqualTo,
+  isAlphanum: isAlphanum,
+  isEven: isEven,
+  isString: isString,
+  isOdd: isOdd,
+  isOtherThan: isOtherThan,
+  isPresent: isPresent,
+  isBlank: isBlank,
+  isNegative: isNegative,
+  isPositive: isPositive,
+  isTrue: isTrue,
+  isFalse: isFalse,
+  isInRange: isInRange,
+  isInteger: isInteger,
+  isFloat: isFloat,
+  hasKeys: hasKeys,
+  isObject: isObject,
+  isHash: isHash,
+  isFinite: isFinite,
+  isMultiple: isMultiple
+};
