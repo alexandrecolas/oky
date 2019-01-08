@@ -4,7 +4,9 @@ import validate from "./index";
 /**
  * cleanObjectValidation
  */
-const cleanObjectValidation: {(object: Object): Object} = reject(equals(true));
+const cleanObjectValidation: { (object: object): object } = reject(
+  equals(true)
+);
 
 /**
  * Validate Hash
