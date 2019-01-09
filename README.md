@@ -23,13 +23,12 @@ Oky is very simple, you just need to use `validate` function with some `validato
  * @param {any} value - value to test
  * @returns {(boolean | string | string[] | object)} Return true when success or errors when failure.
  *    Errors format depends on the validators format :
- *    it return an array if validators args is an array and object if validators args is an object
+ *    it returns an array if validators args is an array and object if validators args is an object
  */
 validate(validators, value);
 ```
 
-`validate` is a function which take 2 arguments, validators, and the value to test.
-It return `true` when success and `errors` list when failure
+It takes 2 arguments, validators, and value and returns `true` when success and `errors` list when failure
 
 validators args can be :
 

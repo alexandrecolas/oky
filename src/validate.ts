@@ -22,11 +22,11 @@ const isValidatorsValidator = function(
 
 /**
  * Validate
- * @param {(Function |Function[] | object)} validators
+ * @param {(Function | Function[] | object)} validators
  * @param {any} value - value to test
  * @returns {(boolean | string | string[] | object)} Return true when success or errors when failure.
  *    Errors format depends on the validators format :
- *    it return an array if validators args is an array and object if validators args is an object
+ *    it returns an array if validators args is an array and object if validators args is an object
  */
 const validate = function(
   validators: Function | Function[] | object,
