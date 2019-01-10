@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "ramda": "^0.26.1",
-    "ramda-validations": "github:alexandrecolas/ramda-validations#master"
+    "ramda-validations": "^1.0.0"
   },
   "babel": {
     "presets": [
