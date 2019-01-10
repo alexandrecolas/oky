@@ -1,8 +1,8 @@
 import { mapObjIndexed, compose, reject, equals } from "ramda";
-import validate from "./index";
+import { runValidations } from "./validate";
 
 /**
- * cleanObjectValidation
+ * Remove props with true result
  */
 const cleanObjectValidation: { (object: object): object } = reject(
   equals(true)
@@ -11,10 +11,12 @@ const cleanObjectValidation: { (object: object): object } = reject(
 /**
  * Validate Hash
  */
-const validateHash = (object: object, value: object) => {
+const validateHash = (object: object, value: object, globalValue: any) => {
   return compose(
     cleanObjectValidation,
-    mapObjIndexed((schema: any, name: string) => validate(schema, value[name]))
+    mapObjIndexed((schema: any, name: string) =>
+      runValidations(schema, value[name], globalValue)
+    )
   )(object);
 };
 

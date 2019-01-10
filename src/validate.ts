@@ -3,40 +3,54 @@ import { is, curry } from "ramda";
 import validateValidator from "./validate-validator";
 import validateValidators from "./validate-validators";
 import validateHash from "./validate-hash";
+import { Validator } from "./validator";
 
+/**
+ * Checks that validators value is a hash
+ * @param validators
+ */
 const isValidatorsHash = function(validators: any): validators is object {
   return isHash(validators);
 };
 
-const isValidatorsValidators = function(
-  validators: any
-): validators is Function[] {
-  return is(Array, validators);
-};
-
+/**
+ * Checks that validators value is a Validator
+ * @param validators
+ */
 const isValidatorsValidator = function(
   validators: any
-): validators is Function {
-  return is(Function, validators);
+): validators is Validator {
+  return validators.constructor.name.toString() === "Validator";
 };
 
 /**
- * Validate
- * @param {(Function | Function[] | object)} validators
- * @param {any} value - value to test
- * @returns {(boolean | string | string[] | object)} Return true when success or errors when failure.
- *    Errors format depends on the validators format :
- *    it returns an array if validators args is an array and object if validators args is an object
+ * Checks that validators value is an array of Validator
+ * @param validators
  */
-const validate = function(
-  validators: Function | Function[] | object,
-  value: any
-): boolean | string | string[] | object {
-  if (isValidatorsHash(validators)) return validateHash(validators, value);
-  if (isValidatorsValidators(validators))
-    return validateValidators(validators, value);
-  if (isValidatorsValidator(validators))
-    return validateValidator(validators, value);
+const isValidatorsValidators = function(
+  validators: any
+): validators is Validator[] {
+  return is(Array, validators);
 };
 
-export default curry(validate);
+/**
+ * Run Validations
+ * @param validators
+ * @param value
+ * @param globalValue
+ */
+export const runValidations = function(
+  validators: Validator[] | Validator | object,
+  value: any,
+  globalValue: any
+) {
+  if (isValidatorsValidator(validators)) {
+    return validateValidator(validators, value, globalValue);
+  } else if (isValidatorsValidators(validators)) {
+    return validateValidators(validators, value, globalValue);
+  } else if (isValidatorsHash(validators)) {
+    return validateHash(validators, value, globalValue);
+  } else {
+    throw new Error("No validators");
+  }
+};

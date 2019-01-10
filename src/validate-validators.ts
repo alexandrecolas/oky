@@ -1,8 +1,8 @@
 import { map, compose, reject, equals, isEmpty, when, T, curry } from "ramda";
 import validateValidator from "./validate-validator";
+import { Validator } from "./validator";
 
 /**
- * Clean Array Validations
  * Remove true from array list and return true if array list is empty or array list
  */
 const cleanArrayValidation: ((input: any) => string[] | boolean) = compose(
@@ -11,27 +11,29 @@ const cleanArrayValidation: ((input: any) => string[] | boolean) = compose(
 );
 
 /**
- * Run Validators
+ * Run All Validators
  */
 const runValidators = (
   value: any,
-  validators: Function[]
+  globalValue: any,
+  validators: Validator[]
 ): (string | boolean)[] =>
   map(
-    (validator: Function): string | boolean =>
-      validateValidator(validator, value)
+    (validator: Validator): string | boolean =>
+      validateValidator(validator, value, globalValue)
   )(validators);
 
 /**
  * Validate Validators
  */
 const validateValidators = (
-  validators: Function[],
-  value: any
+  validators: Validator[],
+  value: any,
+  globalValue: any
 ): string[] | boolean => {
   return compose(
     cleanArrayValidation,
-    curry(runValidators)(value)
+    curry(runValidators)(value, globalValue)
   )(validators);
 };
 
