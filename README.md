@@ -19,7 +19,7 @@ Oky is very simple, you just need to use `validate` function with some `validato
 ```javascript
 /**
  * Validate
- * @param {(Function | Function[] | object)} validators
+ * @param {(Validator | Validator[] | object)} validators
  * @param {any} value - value to test
  * @returns {(boolean | string | string[] | object)} Return true when success or errors when failure.
  *    Errors format depends on the validators format :
@@ -89,6 +89,44 @@ validate(validators, {
  *   age: ["isPositiveFailed"]
  * }
  */
+```
+
+### Create custom Validator
+
+You can create your own validator with `validator` function
+
+```typescript
+/**
+ * Create New Validators
+ * @param {string} name - Validator name
+ * @param {Function} func - Function validation, return `true` when succeed or `false` when failure
+ * @param {string?} errorMessage - Custom error message
+ * @return {Validator} - validator
+ */
+validator(name: string, func: Function, errorMessage?: string);
+```
+
+`func` argument is the function validation :
+
+```typescript
+const funcValidation = (value: any): boolean
+```
+
+```javascript
+import validate, { validator } from "oky";
+
+const isBlue = validator("isBlue", (value) => {
+  return value ==== "blue";
+});
+
+validate(isBlue, "blue") //=> return true
+validate(isBlue, "red") //=> return "isBlueFailed"
+
+
+const isRed = validator("isRed", (value) => value ==== "red", "isNotRed");
+
+validate(isRed, "red") //=> return true
+validate(isRed, "blue") //=> return "isNotRed"
 ```
 
 ### Currying
