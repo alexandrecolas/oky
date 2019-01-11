@@ -1,36 +1,26 @@
-import { isHash } from "ramda-validations";
-import { is, curry } from "ramda";
+import { mapObjIndexed, compose, reject, equals } from "ramda";
+import {
+  isValidatorsHash,
+  isValidatorsValidator,
+  isValidatorsValidators
+} from "./utils";
 import validateValidator from "./validate-validator";
 import validateValidators from "./validate-validators";
-import validateHash from "./validate-hash";
 import { Validator } from "./validator";
 
 /**
- * Checks that validators value is a hash
- * @param validators
+ *
+ * @param object
+ * @param value
+ * @param globalValue
  */
-const isValidatorsHash = function(validators: any): validators is object {
-  return isHash(validators);
-};
-
-/**
- * Checks that validators value is a Validator
- * @param validators
- */
-const isValidatorsValidator = function(
-  validators: any
-): validators is Validator {
-  return validators.constructor.name.toString() === "Validator";
-};
-
-/**
- * Checks that validators value is an array of Validator
- * @param validators
- */
-const isValidatorsValidators = function(
-  validators: any
-): validators is Validator[] {
-  return is(Array, validators);
+const scanHash = (object: object, value: object, globalValue: any) => {
+  return compose(
+    reject(equals(true)),
+    mapObjIndexed((schema: any, name: string) =>
+      runValidations(schema, value[name], globalValue)
+    )
+  )(object);
 };
 
 /**
@@ -49,7 +39,7 @@ export const runValidations = function(
   } else if (isValidatorsValidators(validators)) {
     return validateValidators(validators, value, globalValue);
   } else if (isValidatorsHash(validators)) {
-    return validateHash(validators, value, globalValue);
+    return scanHash(validators, value, globalValue);
   } else {
     throw new Error("No validators");
   }
