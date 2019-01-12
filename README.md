@@ -10,6 +10,12 @@ To install the stable version:
 npm install --save oky
 ```
 
+Install validators
+
+```bash
+npm install --save oky-validators
+```
+
 ## Usage
 
 Oky is very simple, you just need to use `validate` function with some `validators`
@@ -35,7 +41,8 @@ validators args can be :
 - A validator
 
 ```javascript
-import validate, { isInteger } from "oky";
+import { validate } from "oky";
+import { isInteger } from "oky-validators";
 
 const validator = isInteger;
 
@@ -46,7 +53,8 @@ validate(validator, "hello"); // return "isIntegerFailed"
 - A list of validators
 
 ```javascript
-import validate, { isInteger, isPositive } from "oky";
+import { validate } from "oky";
+import { isInteger, isPositive } from "oky-validators";
 
 const validators = [isInteger, isPositive];
 
@@ -103,7 +111,7 @@ You can create your own validator with `validator` function
  * @param {string?} errorMessage - Custom error message
  * @return {Validator} - validator
  */
-validator(name: string, func: Function, errorMessage?: string);
+createValidator(name: string, func: Function, errorMessage?: string);
 ```
 
 `func` argument is the function validation :
@@ -113,9 +121,9 @@ const funcValidation = (value: any): boolean
 ```
 
 ```javascript
-import validate, { validator } from "oky";
+import { validate, createValidator } from "oky";
 
-const isBlue = validator("isBlue", (value) => {
+const isBlue = createValidator("isBlue", (value) => {
   return value ==== "blue";
 });
 
@@ -123,7 +131,7 @@ validate(isBlue, "blue") //=> return true
 validate(isBlue, "red") //=> return "isBlueFailed"
 
 
-const isRed = validator("isRed", (value) => value ==== "red", "isNotRed");
+const isRed = createValidator("isRed", (value) => value ==== "red", "isNotRed");
 
 validate(isRed, "red") //=> return true
 validate(isRed, "blue") //=> return "isNotRed"
@@ -134,7 +142,8 @@ validate(isRed, "blue") //=> return "isNotRed"
 `validate` is curried by default
 
 ```javascript
-import validate, { isInteger, isPositive } from "oky";
+import { validate } from "oky";
+import { isInteger, isPositive } from "oky-validators";
 
 const checkValidation = validate([isInteger, isPositive]);
 checkValidation(3); // return true
@@ -142,7 +151,7 @@ checkValidation(3); // return true
 validate([isInteger, isPositive])(3); // return true;
 ```
 
-## Validators List
+## Validators List with `oky-validators`
 
 ### General
 
@@ -190,4 +199,4 @@ validate([isInteger, isPositive])(3); // return true;
 - isObject
 - isHash
 
-oky use `ramda` and `ramda-validations` for validators.
+`oky-validators` use `ramda` and `ramda-validations` for validators.
