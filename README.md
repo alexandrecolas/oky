@@ -67,7 +67,7 @@ const validators = {
 
 validate(validators, {
   name: {
-    first: "Obi wan",
+    first: "Obi-Wan",
     last: "Kenobi"
   },
   age: 42
