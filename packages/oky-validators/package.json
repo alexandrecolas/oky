@@ -1,0 +1,75 @@
+{
+  "name": "oky-validators",
+  "version": "0.0.1",
+  "description": "Oky Validators",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexandrecolas/oky.git"
+  },
+  "author": "Alexandre Colas <colasalexandre@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexandrecolas/oky/issues"
+  },
+  "homepage": "https://github.com/alexandrecolas/oky#readme",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.0",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.0",
+    "@babel/preset-typescript": "^7.1.0",
+    "@types/ramda": "^0.25.46",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "babel-plugin-module-resolver": "^3.1.1",
+    "babel-preset-flow": "^6.23.0",
+    "flow-bin": "^0.89.0",
+    "jest": "^23.6.0",
+    "regenerator-runtime": "^0.13.1",
+    "rollup": "^1.1.0",
+    "rollup-plugin-babel": "^4.3.0",
+    "rollup-plugin-node-resolve": "^4.0.0",
+    "rollup-plugin-uglify": "^6.0.0"
+  },
+  "dependencies": {
+    "oky": "0.0.1",
+    "ramda": "^0.26.1",
+    "ramda-validations": "^1.0.0"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-typescript"
+    ],
+    "plugins": [
+      [
+        "module-resolver",
+        {
+          "extensions": [
+            ".jsx",
+            ".ts"
+          ],
+          "root": [
+            "./src"
+          ]
+        }
+      ]
+    ]
+  },
+  "jest": {
+    "moduleDirectories": [
+      "./node_modules",
+      "./src"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(js|ts)$": "babel-jest"
+    }
+  }
+}
