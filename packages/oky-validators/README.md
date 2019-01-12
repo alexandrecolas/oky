@@ -1,6 +1,6 @@
-# Oky
+# Oky-validators
 
-`oky-validators` use `ramda` and `ramda-validations` for validators.
+`oky-validators` is a list of validators for [oky](https://www.npmjs.com/package/oky).
 
 ## Validators List
 
@@ -49,3 +49,9 @@
 - hasKeys
 - isObject
 - isHash
+
+# Dependencies
+
+- [oky](https://www.npmjs.com/package/oky)
+- [ramda](https://www.npmjs.com/package/ramda)
+- [ramda-validations](https://www.npmjs.com/package/ramda-validations)

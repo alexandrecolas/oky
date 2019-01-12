@@ -4,13 +4,13 @@ Oky is a JavaScript type testing library.
 
 ## Installation
 
-To install the stable version:
+Install the stable version:
 
 ```bash
 npm install --save oky
 ```
 
-Install validators
+Install validators with [oky-validators](https://www.npmjs.com/package/oky-validators) package
 
 ```bash
 npm install --save oky-validators
@@ -150,3 +150,11 @@ checkValidation(3); // return true
 
 validate([isInteger, isPositive])(3); // return true;
 ```
+
+### Validators list
+
+See [oky-validators](https://www.npmjs.com/package/oky-validators) package
+
+## Dependencies
+
+- [ramda](https://www.npmjs.com/package/ramda)
