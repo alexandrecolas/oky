@@ -12,6 +12,12 @@
   "bugs": {
     "url": "https://github.com/alexandrecolas/oky/issues"
   },
+  "keywords": [
+    "ramda",
+    "validations",
+    "validators",
+    "validate"
+  ],
   "homepage": "https://github.com/alexandrecolas/oky#readme",
   "scripts": {
     "test": "jest",
