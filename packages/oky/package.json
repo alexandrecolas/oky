@@ -1,7 +1,8 @@
 {
   "name": "oky",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "",
+  "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alexandrecolas/oky.git"
@@ -29,6 +30,7 @@
     "babel-preset-flow": "^6.23.0",
     "flow-bin": "^0.89.0",
     "jest": "^23.6.0",
+    "oky-validators": "0.0.1",
     "regenerator-runtime": "^0.13.1",
     "rollup": "^1.1.0",
     "rollup-plugin-babel": "^4.3.0",

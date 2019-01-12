@@ -1,4 +1,5 @@
-import validate, { isInteger, isPositive, isString, isPresent } from "../src";
+import { validate } from "../src";
+import { isInteger, isPositive, isString, isPresent } from "oky-validators";
 
 describe("validate", () => {
   test("validate one validator", () => {
