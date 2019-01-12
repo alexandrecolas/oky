@@ -1,62 +1,65 @@
 import * as RV from "ramda-validations";
 import R from "ramda";
-import { validator } from "oky";
+import { createValidator } from "oky";
 
 /**
  * Validators
  */
-export const hasPattern = validator("hasPattern", R.test);
+export const hasPattern = createValidator("hasPattern", R.test);
 
-export const isContains = validator("isContains", R.includes);
+export const isContains = createValidator("isContains", R.includes);
 
-export const isEqualsTo = validator("isEqualsTo", R.equals);
+export const isEqualsTo = createValidator("isEqualsTo", R.equals);
 
-export const hasKey = validator("hasKey", R.has);
+export const hasKey = createValidator("hasKey", R.has);
 
-export const isGreaterThan = validator("isGreaterThan", R.gt);
+export const isGreaterThan = createValidator("isGreaterThan", R.gt);
 
-export const isGreaterThanOrEqualTo = validator(
+export const isGreaterThanOrEqualTo = createValidator(
   "isGreaterThanOrEqualTo",
   R.gte
 );
-export const isLessThan = validator("isLessThan", R.lt);
+export const isLessThan = createValidator("isLessThan", R.lt);
 
-export const isLessThanOrEqualTo = validator("isLessThanOrEqualTo", R.lte);
+export const isLessThanOrEqualTo = createValidator(
+  "isLessThanOrEqualTo",
+  R.lte
+);
 
-export const isAlphanum = validator("isAlphanum", RV.isAlphanum);
+export const isAlphanum = createValidator("isAlphanum", RV.isAlphanum);
 
-export const isEven = validator("isEven", RV.isEven);
+export const isEven = createValidator("isEven", RV.isEven);
 
-export const isString = validator("isString", RV.isString);
+export const isString = createValidator("isString", RV.isString);
 
-export const isOdd = validator("isOdd", RV.isOdd);
+export const isOdd = createValidator("isOdd", RV.isOdd);
 
-export const isOtherThan = validator("isOtherThan", RV.isOtherThan);
+export const isOtherThan = createValidator("isOtherThan", RV.isOtherThan);
 
-export const isPresent = validator("isPresent", RV.isPresent);
+export const isPresent = createValidator("isPresent", RV.isPresent);
 
-export const isBlank = validator("isBlank", RV.isBlank);
+export const isBlank = createValidator("isBlank", RV.isBlank);
 
-export const isNegative = validator("isNegative", RV.isNegative);
+export const isNegative = createValidator("isNegative", RV.isNegative);
 
-export const isPositive = validator("isPositive", RV.isPositive);
+export const isPositive = createValidator("isPositive", RV.isPositive);
 
-export const isTrue = validator("isTrue", RV.isTrue);
+export const isTrue = createValidator("isTrue", RV.isTrue);
 
-export const isFalse = validator("isFalse", RV.isFalse);
+export const isFalse = createValidator("isFalse", RV.isFalse);
 
-export const isInRange = validator("isInRange", RV.isInRange);
+export const isInRange = createValidator("isInRange", RV.isInRange);
 
-export const isInteger = validator("isInteger", RV.isInteger);
+export const isInteger = createValidator("isInteger", RV.isInteger);
 
-export const isFloat = validator("isFloat", RV.isFloat);
+export const isFloat = createValidator("isFloat", RV.isFloat);
 
-export const hasKeys = validator("hasKeys", RV.hasKeys);
+export const hasKeys = createValidator("hasKeys", RV.hasKeys);
 
-export const isObject = validator("isObject", RV.isObject);
+export const isObject = createValidator("isObject", RV.isObject);
 
-export const isHash = validator("isHash", RV.isHash);
+export const isHash = createValidator("isHash", RV.isHash);
 
-export const isFinite = validator("isFinite", RV.isFinite);
+export const isFinite = createValidator("isFinite", RV.isFinite);
 
-export const isMultiple = validator("isMultiple", RV.isMultiple);
+export const isMultiple = createValidator("isMultiple", RV.isMultiple);
