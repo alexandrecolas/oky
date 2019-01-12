@@ -42,8 +42,7 @@
     "rollup-plugin-uglify": "^6.0.0"
   },
   "dependencies": {
-    "ramda": "^0.26.1",
-    "ramda-validations": "^1.0.0"
+    "ramda": "^0.26.1"
   },
   "babel": {
     "presets": [
