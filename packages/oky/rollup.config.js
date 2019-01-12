@@ -11,11 +11,10 @@ var config = {
     name: "oky",
     file: "lib/index.js",
     globals: {
-      ramda: "R",
-      "ramda-validations": "RV"
+      ramda: "R"
     }
   },
-  external: ["ramda", "ramda-validations"],
+  external: ["ramda"],
   plugins: [
     resolve({ extensions }),
     babel({
