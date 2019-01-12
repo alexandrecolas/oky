@@ -1,7 +1,6 @@
 import { curry } from "ramda";
 import { runValidations } from "./validate";
-import createValidator from "./validator";
-import { Validator } from "./validator";
+import validator, { Validator } from "./validator";
 
 /**
  * Validate
@@ -11,16 +10,11 @@ import { Validator } from "./validator";
  *    Errors format depends on the validators format :
  *    it returns an array if validators args is an array and object if validators args is an object
  */
-const validate = function(
+export const validate = curry(function(
   validators: Validator[] | Validator | object,
   value: any
 ): boolean | string | string[] | object {
   return runValidations(validators, value, value);
-};
+});
 
-/**
- * Export
- */
-export const validator = createValidator;
-export * from "./validators";
-export default curry(validate);
+export const createValidator = validator;

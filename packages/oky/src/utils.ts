@@ -1,6 +1,7 @@
 import { is } from "ramda";
-import { isHash } from "ramda-validations";
 import { Validator } from "./validator";
+
+const isHash = (input: any) => input.constructor == Object;
 
 /**
  * Checks that validators value is a hash

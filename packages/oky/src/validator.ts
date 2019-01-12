@@ -24,7 +24,7 @@ export class Validator implements ValidatorInterface {
  * @param {Function} func - Function validation, return `true` when succeed or `false` when failure
  * @param {string?} errorMessage - Custom error message
  */
-const createValidator: any = (
+const validator: any = (
   name: string,
   func: Function,
   errorMessage?: string
@@ -32,4 +32,4 @@ const createValidator: any = (
   return new Validator(name, func, errorMessage);
 };
 
-export default createValidator;
+export default validator;
